@@ -29,7 +29,7 @@ Wszystkie akcje związane z zadaniami są zapisywane w historii.
 ![image](https://github.com/user-attachments/assets/6aa5e4c9-486c-4ec9-827e-18830844201b)
 
 
-## Uruchomianie
+## Uruchomienie
 Aplikacja jest skonfigurowana w taki sposób, że po uruchomieniu automatycznie stosowane są dostępne migracje bazy danych oraz tworzony jest użytkownik - admin.
 Aby uruchomić aplikację należy w głównym folderze projektu (tam gdzie jest plik .sln) utworzyć plik ```.env``` na wzór ```.env.example.```
 Następnie należy wpisać komendę:
