@@ -6,6 +6,7 @@
 
 ## O projekcie
 Aplikacja do zarządzania zadaniami zbudowana w oparciu o wzorzec MVC z wykorzystaniem ASP.NET Core, Entity Framework Core, PostgreSQL oraz interaktywnego interfejsu użytkownika z JavaScript i elementami drag & drop. Aplikacja jest skonteneryzowana za pomocą Docker i Docker Compose.
+
 Pozwala użytkownikowi z prawami administratora na:
 - tworzenie, edycję oraz usuwanie wszystkich zadań w systemie
 - wyświetlanie wszystkich zadań
