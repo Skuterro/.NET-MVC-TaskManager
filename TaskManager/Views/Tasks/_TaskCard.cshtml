@@ -1,0 +1,40 @@
+﻿@model TaskManager.Dtos.TaskResponseDto
+@{
+    bool isAdmin = ViewBag.IsAdmin as bool? ?? false;
+
+    string formattedUpdatedAt = "N/A";
+    if (DateTime.TryParse(Model.UpdatedAt, null, System.Globalization.DateTimeStyles.AdjustToUniversal, out DateTime updatedAtUtc))
+    {
+        DateTime localUpdatedAt = updatedAtUtc.ToLocalTime();
+        formattedUpdatedAt = localUpdatedAt.ToString("dd.MM.yyyy, HH:mm:ss");
+    }
+}
+
+<div class="card task-card mb-2 shadow-sm" id="task-@Model.Id" data-task-id="@Model.Id" draggable="true">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start">
+            <h5 class="card-title mb-1">@Model.Title</h5>
+            @if (isAdmin)
+            {
+                <div class="task-actions">
+                    <button class="btn btn-sm btn-outline-secondary edit-task-btn py-0 px-1 me-1" title="Edytuj" data-task-id="@Model.Id">
+                        <i class="bi bi-pencil-square"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger delete-task-btn py-0 px-1" title="Usuń" data-task-id="@Model.Id">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+            }
+        </div>
+        @if (!string.IsNullOrWhiteSpace(Model.Description))
+        {
+            <p class="card-text small">@Model.Description</p>
+        }
+        <p class="card-text mb-0">
+            <small class="text-muted">Assigned to: @(Model.AssignedUserName ?? "N/A")</small>
+        </p>
+        <p class="card-text">
+            <small class="text-muted">Updated: @formattedUpdatedAt</small>
+        </p>
+    </div>
+</div>
